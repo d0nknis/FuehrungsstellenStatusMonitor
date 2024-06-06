@@ -1,6 +1,7 @@
 # Führungsstellen Status Monitor
+ein fork von [ goerdy/FuehrungsstellenStatusMonitor](https://github.com/goerdy/FuehrungsstellenStatusMonitor)
 ## Beschreibung
-Eine simple HTML und JS Seite, die lokal ohne Server im Browser läuft um einen Statusmonitor für Führungsfahrzeuge im Katastrophenschutz etc. anzeigen zu können. 
+Eine simple php und JS Seite, die lokal mit Server im Browser läuft um einen Statusmonitor für Führungsfahrzeuge im Katastrophenschutz etc. anzeigen zu können. 
 Ideal für Führungsstellen und Zugtrupps. 
 Mit taktischer Zeit (Datum-Zeit-Gruppe), Einsatzdauer, Stärkemeldung... 
 Mit hellem und dunklem Anzeigemodus. 
@@ -9,13 +10,13 @@ Mit hellem und dunklem Anzeigemodus.
 
 ## How to
 ### Lokal:
-Einfach die HTML Datei auf dem Einsatzrechner runterladen und im Browser eurer Wahl öffnen.
-Es muss nichts installiert werden... sollte also auch auf Bundes-Hardware... laufen.
+Einfach die PC/Server mit docker laden und `docker compose up -d` danach sollte die seite mit http://ip-adresse:8000/einsatzmonitor.php erreichbar sein und mit http://ip-adresse:8000/einsatzmonitor.php?options Steuerbar sein.
 ### Hosted
-Unter https://pq5.de gibts eine gehostete Variante, ich empfehle aber die HTML Datei runter zu laden um unabhängig von Internet-Infrastruktur zu sein.
+Unter https://einsatzmonitor.d0nk.xyz/einsatzmonitor.php gibts eine gehostete Variante, ich empfehle aber die PHP Datei runter zu laden und auf einem Raspi zu Hosten.
+Um die Einstellungen zu ändern einfach https://einsatzmonitor.d0nk.xyz/einsatzmonitor.php?options aufrufen. 
 
 ## Datenschutz und so
-Alle daten werden lokal im Browser verarbeitet und gespeichert.
+Alle daten werden auf dem Server verarbeitet und gespeichert.
 Es werden keine externen Skripte oder sonstige Sachen geladen.
 
 ## Feature Requests / Bug reporting...
