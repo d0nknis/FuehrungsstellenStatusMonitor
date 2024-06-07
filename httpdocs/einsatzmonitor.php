@@ -271,14 +271,14 @@ if(isset($_GET['json']))
         <br>
         <br>
         <hr>
-        <p class="settings">Aktuelle Einsatzdaten exportieren</p>
+        <!-- <p class="settings">Aktuelle Einsatzdaten exportieren</p>
         <input id="fileOutput" type="button" value="Daten speichern">
         <hr>
         <p class="settings">Zuvor gespeicherte Einsatzdaten importieren (ACHTUNG! Aktuelle Daten gehen verloren!)</p>
 
         <input id="loadFileXml" onclick="document.getElementById('fileInput').click();" type="button"
                value="Daten einlesen"/>
-        <input id="fileInput" name="fileInput" style="display:none;" type="file"/>
+        <input id="fileInput" name="fileInput" style="display:none;" type="file"/> -->
         <hr>
         <p class="settings">Aktuellen Einsatz zurücksetzen (ACHTUNG! Aktuelle Daten gehen verloren!)</p>
         <input id="reset" type="button" value="Daten löschen">
@@ -345,6 +345,12 @@ if(isset($_GET['json']))
 
     // (Fügen Sie hier den JavaScript-Code für Stärkemeldung hinzu)
     document.getElementById('einheitenListe').addEventListener('submit', function (e) {
+
+        try {
+            var einheiten = JSON.parse(myData['einheiten']);
+        } catch (error) {
+            var einheiten = [];
+        }
         e.preventDefault();
         const Typ = document.getElementById('Typ').value;
         const fuehrer = parseInt(document.getElementById('fuehrer').value, 10);
@@ -362,7 +368,7 @@ if(isset($_GET['json']))
 
         aktualisiereEinheitenListe();
         aktualisiereGesamtstaerke();
-        this.reset(); // Formular zurücksetzen
+        //this.reset(); // Formular zurücksetzen
     });
 
     function aktualisiereEinheitenListe() {
@@ -576,7 +582,7 @@ if(isset($_GET['json']))
         document.body.classList.remove("dark-mode");
         document.getElementById("darkmodeswitch").checked = false;
     }
-
+/*
 
     function exportLocalStorage() {
         let storageObj = {};
@@ -626,7 +632,7 @@ if(isset($_GET['json']))
 
         }
 
-    });
+    });*/
     document.getElementById('reset').addEventListener('click', function (event) {
         const bestaetigung = confirm("Sicher das alle Daten gelöscht werden sollen?");
         if (bestaetigung) {
